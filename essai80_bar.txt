@@ -1,0 +1,11 @@
+material=aluminium
+type=compression
+length(mm)=2000
+diameter(mm)=19.99
+volume(mm3)=627690
+mass(g)=4950
+density(kg/m3)=7886.1
+celerity(m/s)=5096.6
+young modulus(MPa)=204846.6
+j1-sample(mm)=1005
+sample-j2(mm)=990
