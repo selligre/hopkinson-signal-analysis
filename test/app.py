@@ -1,11 +1,12 @@
 import data
-import window
+import os
 
 
 def main():
     d = data.Data()
-    window.action(d)
-    print(f"Data.add_data() called: {d.value}")
+    print(f"data.Data() called: {d.value}")
+    print(f"d.address = {d}")
+    os.system("python ./test/window.py")
 
 
 if __name__ == "__main__":
