@@ -150,8 +150,8 @@ class CalculusController:
         self.ai2 = ai2
 
     def test_all_data_is_accessible(self):
-        print(self.bar_parameters)
-        print(self.specimen_parameters)
-        print(self.time)
-        print(self.ai1)
-        print(self.ai2)
+        print(self.bar_parameters[1])
+        print(self.specimen_parameters[1])
+        print(self.time[1])
+        print(self.ai1[1])
+        print(self.ai2[1])
