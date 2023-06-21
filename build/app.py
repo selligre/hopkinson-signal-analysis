@@ -10,4 +10,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-# reste le probleme que quand on est sur GUIanalyse, la croix ne provoque pas l'arret du script
+# reste a implementer les fonctions de calcul
+# puis les fonctions d'export (au moins une pour faire un exemple)
+# puis s'interesser au hash/compile/.exe
