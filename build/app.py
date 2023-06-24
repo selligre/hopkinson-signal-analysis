@@ -4,12 +4,18 @@ import GUImain
 
 def main():
     calc = CalculusController.CalculusController()
+    # calc.import_data_file()
+    # calc.display_and_limiting()
     GUImain.run(calc)
 
 
 if __name__ == "__main__":
     main()
 
-# reste a implementer les fonctions de calcul
-# puis les fonctions d'export (au moins une pour faire un exemple)
-# puis s'interesser au hash/compile/.exe
+# IMPLEMENTER FONCTIONS DE CALCUL
+# GUIdata.import_data_file() devrait ensuite lancer l'affichage du graphe dans la fenetre dediee
+
+# IMPLEMENTER FONCTION D'EXPORT (EXEMPLE)
+# GUIspecimen.export()
+
+# HASH/COMPILE/.EXE

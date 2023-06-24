@@ -83,7 +83,7 @@ def run(calc):
         image=button_image_4,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: calc.test_all_data_is_accessible(),
+        command=lambda: print(f'export final data'),
         relief="flat",
     )
     button_4.place(x=1035.0, y=612.0, width=200.0, height=50.0)

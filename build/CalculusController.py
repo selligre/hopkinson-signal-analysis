@@ -1,5 +1,7 @@
 import tkinter
 from tkinter import filedialog
+import matplotlib.pyplot
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 
 
 class CalculusController:
@@ -9,12 +11,6 @@ class CalculusController:
         self.time = []
         self.ai1 = []
         self.ai2 = []
-
-    # bar_parameters = []
-    # specimen_parameters = []
-    # time = []
-    # ai1 = []
-    # ai2 = []
 
     def import_bar_settings(self):
         def extract_parameters(file):
@@ -149,9 +145,118 @@ class CalculusController:
         self.ai1 = ai1
         self.ai2 = ai2
 
-    def test_all_data_is_accessible(self):
-        print(self.bar_parameters[1])
-        print(self.specimen_parameters[1])
-        print(self.time[1])
-        print(self.ai1[1])
-        print(self.ai2[1])
+    def display_and_limiting(self):
+        time = self.time
+        ai1 = self.ai1
+        ai2 = self.ai2
+        tk = tkinter
+        FIG_WIDTH = 1280
+        FIG_HEIGHT = 720
+        # 5) CREATE GRAPH
+        fig, ax = matplotlib.pyplot.subplots(
+            figsize=(FIG_WIDTH / 100, FIG_HEIGHT / 100)
+        )
+        ax.plot(time, ai1, label="ai1")
+        ax.plot(time, ai2, label="ai2")
+        ax.set_xlabel("Time")
+        ax.set_ylabel("Amplitude")
+        ax.legend()
+
+        # CREATE CANVAS AND TOOLBAR
+        # Create window
+        graph_window = tk.Tk()
+        graph_window.title("Graph")
+        # Create graph canvas in window
+        canvas = FigureCanvasTkAgg(fig, master=graph_window)
+        canvas.draw()
+        canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+        # Create toolbar
+        toolbar = NavigationToolbar2Tk(canvas, graph_window)
+        toolbar.update()
+        toolbar.pack(side="top", fill="both", expand=1)
+        # Remove Home, Subplots and Save buttons from toolbar
+        toolbar._buttons["Home"].pack_forget()
+        toolbar._buttons["Subplots"].pack_forget()
+        toolbar._buttons["Save"].pack_forget()
+
+        # CLOSE WINDOW BUTTON
+        def window_close():
+            graph_window.destroy()
+            graph_window.quit()
+
+        close_button = tk.Button(
+            master=graph_window, text="Close", command=window_close
+        )
+        close_button.pack()
+
+        # SELECT POINT BUTTON
+        global left_border_time, right_border_time
+        left_border_time = None
+        right_border_time = None
+        cid = None
+
+        def find_closest_index(x):
+            # Find the index of the closest point to x
+            distances = []
+            for line in ax.lines:
+                xdata = line.get_xdata()
+                distances.append((((xdata - x) ** 2) ** 0.5))
+            min_distance = float("inf")
+            for j in range(len(distances[0])):
+                if min_distance > distances[0][j]:
+                    min_distance = distances[0][j]
+            closest_index = None
+            for j in range(len(distances[0])):
+                if distances[0][j] == min_distance:
+                    closest_index = j
+            return closest_index
+
+        def select_point(event):
+            global left_border_time, right_border_time
+            if (left_border_time is not None) and (right_border_time is not None):
+                print(f"The two borders have already been defined.")
+                return
+            closest_index = find_closest_index(event.xdata)
+            closest_time = time[closest_index]
+            if (left_border_time is not None) and (right_border_time is None):
+                right_border_time = closest_time
+            if (left_border_time is None) and (right_border_time is None):
+                left_border_time = closest_time
+            ax.axvline(x=closest_time, color="r")
+            canvas.draw()
+            fig.canvas.mpl_disconnect(cid)
+
+        def start_selection():
+            global cid
+            cid = fig.canvas.mpl_connect("button_press_event", select_point)
+
+        select_point_button = tk.Button(
+            master=graph_window, text="Select a point", command=start_selection
+        )
+        select_point_button.pack()
+
+        # MAIN LOOP
+        tk.mainloop()
+
+        # 6) REDUCE THE GRAPH DATA
+        left_border_index = -1
+        right_border_index = -1
+
+        for index in range(len(time)):
+            if time[index] == left_border_time:
+                left_border_index = index
+            if time[index] == right_border_time:
+                right_border_index = index
+
+        data_time_cropped = []
+        data_ai1_cropped = []
+        data_ai2_cropped = []
+        for index in range(len(time)):
+            if left_border_index <= index <= right_border_index:
+                data_time_cropped.append(time[index])
+                data_ai1_cropped.append(ai1[index])
+                data_ai2_cropped.append(ai2[index])
+
+        self.time = data_ai1_cropped
+        self.ai1 = data_ai1_cropped
+        self.ai2 = data_ai2_cropped

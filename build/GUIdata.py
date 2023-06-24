@@ -75,7 +75,7 @@ def run(calc):
         image=button_image_3,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: calc.import_data_file(),
+        command=lambda: (calc.import_data_file(), calc.display_and_limiting()),
         relief="flat",
     )
     button_3.place(x=50.0, y=449.0, width=250.0, height=75.0)
