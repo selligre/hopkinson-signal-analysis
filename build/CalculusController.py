@@ -11,6 +11,8 @@ class CalculusController:
         self.time = []
         self.ai1 = []
         self.ai2 = []
+        self.stress = []
+        self.strain = []
 
     def import_bar_settings(self):
         def extract_parameters(file):
