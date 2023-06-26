@@ -4,8 +4,6 @@ import GUImain
 
 def main():
     calc = CalculusController.CalculusController()
-    # calc.import_data_file()
-    # calc.display_and_limiting()
     GUImain.run(calc)
 
 
