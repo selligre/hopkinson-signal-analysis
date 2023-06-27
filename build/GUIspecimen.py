@@ -104,7 +104,7 @@ def run(calc):
         image=button_image_3,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print(f"export function called"),
+        command=lambda: calc.export_specimen_settings(),
         relief="flat",
     )
     button_3.place(x=50.0, y=381.0, width=200.0, height=50.0)

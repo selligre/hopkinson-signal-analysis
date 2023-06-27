@@ -493,3 +493,21 @@ class CalculusController:
 
         # MAIN LOOP
         tk.mainloop()
+
+    def export_bar_settings(self):
+        root = tkinter.Tk()
+        root.withdraw()
+        FILE_NAME = filedialog.askopenfilename()
+        if not FILE_NAME:
+            exit()
+        with open(FILE_NAME, "w") as f:
+            f.write(str(self.bar_parameters))
+
+    def export_specimen_settings(self):
+        root = tkinter.Tk()
+        root.withdraw()
+        FILE_NAME = filedialog.askopenfilename()
+        if not FILE_NAME:
+            exit()
+        with open(FILE_NAME, "w") as f:
+            f.write(str(self.specimen_parameters))
