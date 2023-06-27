@@ -85,7 +85,10 @@ def run(calc):
         image=button_image_4,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: (window.destroy(), GUIanalyze.run(calc)),
+        command=lambda: (
+            window.destroy(),
+            GUIanalyze.run(calc),
+        ),
         relief="flat",
     )
     button_4.place(x=639.0, y=555.0, width=300.0, height=100.0)
