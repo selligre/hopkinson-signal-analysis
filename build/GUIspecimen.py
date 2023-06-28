@@ -94,7 +94,7 @@ def run(calc):
         image=button_image_2,
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: calc.import_speciment_settings(),
+        command=lambda: calc.import_specimen_settings(),
         relief="flat",
     )
     button_2.place(x=50.0, y=283.0, width=200.0, height=50.0)

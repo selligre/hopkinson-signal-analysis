@@ -49,7 +49,7 @@ class CalculusController:
                 bar_parameters[index] = float(bar_parameters[index])
         self.bar_parameters = bar_parameters
 
-    def import_speciment_settings(self):
+    def import_specimen_settings(self):
         def extract_parameters(file):
             """
             bar_parameters[material, type, length, diameter, volume, mass, density, celerity, young modulus, j1-sample, sample-j2]
@@ -70,7 +70,6 @@ class CalculusController:
                 return result
 
             return clear_data(load_txt(file))
-
         root = tkinter.Tk()
         root.withdraw()
         FILE_NAME = filedialog.askopenfilename()
@@ -81,6 +80,9 @@ class CalculusController:
         for index in range(len(specimen_parameters)):
             specimen_parameters[index] = float(specimen_parameters[index])
         self.specimen_parameters = specimen_parameters
+
+    # def import_specimen_settings(self):
+    #     pass
 
     def import_data_file(self):
         def extract_data(file):
@@ -263,7 +265,7 @@ class CalculusController:
         bar_young_modulus = bar_parameters[8]
         bar_j1_sample = bar_parameters[9]
         bar_j2_sample = bar_parameters[10]
-
+        specimen_parameters = self.specimen_parameters
         specimen_length = specimen_parameters[0]
         specimen_diameter = specimen_parameters[1]
 
