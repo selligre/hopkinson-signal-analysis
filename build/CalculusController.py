@@ -70,6 +70,7 @@ class CalculusController:
                 return result
 
             return clear_data(load_txt(file))
+
         root = tkinter.Tk()
         root.withdraw()
         FILE_NAME = filedialog.askopenfilename()
@@ -203,7 +204,7 @@ class CalculusController:
         def select_point(event):
             global left_border_time, right_border_time
             if (left_border_time is not None) and (right_border_time is not None):
-                print(f"The two borders have already been defined.")
+                print("The two borders have already been defined.")
                 return
             closest_index = find_closest_index(event.xdata)
             closest_time = time[closest_index]
@@ -412,7 +413,7 @@ class CalculusController:
             global left_border_time2, right_border_time2
             global left_border_index2, right_border_index2
             if (left_border_time2 is not None) and (right_border_time2 is not None):
-                print(f"The two borders have already been defined.")
+                print("The two borders have already been defined.")
                 return
             closest_index2 = find_closest_index2(event.xdata)
             closest_time2 = time[closest_index2]
@@ -438,9 +439,7 @@ class CalculusController:
         # MAIN LOOP
         tk.mainloop()
 
-        # apparent_modulus = (
-        #     stress[right_border_index2] - stress[left_border_index2]
-        # ) / (strain[right_border_index2] - strain[left_border_index2])
+        # apparent_modulus should be equal (stress[right_border_index2] - stress[left_border_index2] ) / (strain[right_border_index2] - strain[left_border_index2])
         apparent_modulus = 1
         # calculer nouveau stress avec le apparent_modulus et afficher dans une nouvelle fenetre avec juste close_button
         # passer a l'interface
