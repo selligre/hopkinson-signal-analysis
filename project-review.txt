@@ -15,22 +15,26 @@ GUI part:
 → link properly the button calls to their calculation parts
 → improve GUI aspect
 
-			Etat actuel:
+			1) Etat actuel:
 
-		Structure:
-	A la racine /thiot-hopkinson:
+		1a) Structure:
 
-	Dans le dossier /thiot-hopkinson/build : 
+	1aa) A la racine /thiot-hopkinson:
+
+Les fichiers essai80* et saved* contiennent des donnees test
+Le fichier launch.py sert au lancement du logiciel
+
+	1ab) Dans le dossier /thiot-hopkinson/build : 
 Le dossier /assets contient les .png utilises pour l’interface
 Les fichiers GUI* correspondent aux fichiers de chaque fenetre du logiciel
 Les donnees et fonctions sont situees dans CalculusController.py
 Le main du logiciel est situe dans app.py
 La premiere version (script) du logiciel se situe dans SCRIPTmain.py
 
-	Pour lancer le logiciel:
+	1ac) Pour lancer le logiciel:
 → se situer a la racine /thiot-hopkinson
 → “python /launch.py”
 	
-	Fonctionnement:
+	1b) Fonctionnement:
 	
-		Projection:
+		2) Projection:
