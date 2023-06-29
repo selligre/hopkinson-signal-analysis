@@ -252,16 +252,11 @@ class CalculusController:
         self.ai2 = data_ai2_cropped
 
         bar_parameters = self.bar_parameters
-        bar_material = bar_parameters[0]
         if bar_parameters[1] == "compression":
             bar_type = -1
         else:
             bar_type = 1
-        bar_length = bar_parameters[2]
         bar_diameter = bar_parameters[3]
-        bar_volume = bar_parameters[4]
-        bar_mass = bar_parameters[5]
-        bar_density = bar_parameters[6]
         bar_signal_celerity = bar_parameters[7]
         bar_young_modulus = bar_parameters[8]
         bar_j1_sample = bar_parameters[9]
