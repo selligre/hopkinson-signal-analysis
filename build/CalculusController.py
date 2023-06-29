@@ -82,9 +82,7 @@ class CalculusController:
             specimen_parameters[index] = float(specimen_parameters[index])
         self.specimen_parameters = specimen_parameters
 
-    # def import_specimen_settings(self):
-    #     pass
-
+    # need to redo the import functions cause of new file format
     def import_data_file(self):
         def extract_data(file):
             def load_txt(file_path):
@@ -267,16 +265,16 @@ class CalculusController:
 
         index_step = time[1] - time[0]
         transmitted_start_index = left_border_index + (
-            bar_j1_sample + bar_j2_sample
+                bar_j1_sample + bar_j2_sample
         ) / (bar_signal_celerity * 1000 * index_step)
         reflected_start_index = left_border_index + (2 * bar_j1_sample) / (
-            bar_signal_celerity * 1000 * index_step
+                bar_signal_celerity * 1000 * index_step
         )
         incident_start_index = left_border_index
         transmitted_end_index = right_border_index
         reflected_end_index = right_border_index
         incident_end_index = (
-            left_border_index + transmitted_end_index - transmitted_start_index
+                left_border_index + transmitted_end_index - transmitted_start_index
         )
 
         incident_signal = []
@@ -312,8 +310,8 @@ class CalculusController:
         for t in range(len(transmitted_signal)):
             stress.append(
                 (
-                    (bar_young_modulus * (bar_diameter * bar_diameter))
-                    / (specimen_diameter * specimen_diameter)
+                        (bar_young_modulus * (bar_diameter * bar_diameter))
+                        / (specimen_diameter * specimen_diameter)
                 )
                 * transmitted_signal[t]
                 * 0.000001
@@ -443,8 +441,8 @@ class CalculusController:
         for t in range(len(transmitted_signal)):
             apparent_stress.append(
                 (
-                    (apparent_modulus * (bar_diameter * bar_diameter))
-                    / (specimen_diameter * specimen_diameter)
+                        (apparent_modulus * (bar_diameter * bar_diameter))
+                        / (specimen_diameter * specimen_diameter)
                 )
                 * transmitted_signal[t]
                 * 0.000001
