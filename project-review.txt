@@ -1,0 +1,36 @@
+What has been made:
+Calculation part:
+→ python, vs code, script-type code structure
+GUI part:
+→ made on figma, used https://github.com/ParthJadhav/Tkinter-Designer to generate python tkinter code from the figma model
+
+Next steps:
+Calculation part:
+→ correct calculations (especially the last graph correction) and smooth data for better graphs
+→ object orientation
+→ file packaging
+→ .exe file creation
+→ hashing project / find a solution for confidential distribution
+GUI part:
+→ link properly the button calls to their calculation parts
+→ improve GUI aspect
+
+			Etat actuel:
+
+		Structure:
+	A la racine /thiot-hopkinson:
+
+	Dans le dossier /thiot-hopkinson/build : 
+Le dossier /assets contient les .png utilises pour l’interface
+Les fichiers GUI* correspondent aux fichiers de chaque fenetre du logiciel
+Les donnees et fonctions sont situees dans CalculusController.py
+Le main du logiciel est situe dans app.py
+La premiere version (script) du logiciel se situe dans SCRIPTmain.py
+
+	Pour lancer le logiciel:
+→ se situer a la racine /thiot-hopkinson
+→ “python /launch.py”
+	
+	Fonctionnement:
+	
+		Projection:
