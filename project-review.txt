@@ -1,40 +1,66 @@
-What has been made:
-Calculation part:
-→ python, vs code, script-type code structure
-GUI part:
-→ made on figma, used https://github.com/ParthJadhav/Tkinter-Designer to generate python tkinter code from the figma model
+		1) Etat actuel:
 
-Next steps:
-Calculation part:
-→ correct calculations (especially the last graph correction) and smooth data for better graphs
-→ object orientation
-→ file packaging
-→ .exe file creation
-→ hashing project / find a solution for confidential distribution
-GUI part:
-→ link properly the button calls to their calculation parts
-→ improve GUI aspect
+	1a) Structure:
 
-			1) Etat actuel:
+A la racine /thiot-hopkinson:
 
-		1a) Structure:
-
-	1aa) A la racine /thiot-hopkinson:
-
-Les fichiers essai80* et saved* contiennent des donnees test
+Les fichiers essai80* et saved* contiennent des donnees de test
 Le fichier launch.py sert au lancement du logiciel
 
-	1ab) Dans le dossier /thiot-hopkinson/build : 
+Dans le dossier /thiot-hopkinson/build : 
+
 Le dossier /assets contient les .png utilises pour l’interface
 Les fichiers GUI* correspondent aux fichiers de chaque fenetre du logiciel
 Les donnees et fonctions sont situees dans CalculusController.py
 Le main du logiciel est situe dans app.py
 La premiere version (script) du logiciel se situe dans SCRIPTmain.py
 
-	1ac) Pour lancer le logiciel:
+Pour lancer le logiciel:
+
 → se situer a la racine /thiot-hopkinson
 → “python /launch.py”
 	
 	1b) Fonctionnement:
+
+app.py cree une instance de CalculusController pour stocker les variables qui seront importees plus tard
+app.py lance ensuite la page d'accueil du logiciel
+sur GUImain, on peut acceder aux parametres de bar via le bouton "Bar Settings"
+dans la fenetre GUIbar, on peut importer et exporter les parametres de barre
+de retour sur GUImain, on peut acceder a la suite
+sur GUIdata, on peut acceder aux parametres d'echantillon via "Specimen Settings"
+dans la fenetre GUIspecimen, on peut importer et exporter les parametres d'echantillon
+de retour sur GUIdata, on peut importer le fichier des donnees d'essai via le bouton "Data File"
+le bouton "Data File" lance par la meme occasion la phase de fenetrage des donnees importees
+il faut cliquer a chaque fois sur "Selection" puis cliquer sur le graphe pour preciser la borne de gauche, puis de droite
+et enfin fermer la fenetre avec le bouton "Close"
+puis cliquer sur Next pour acceder a GUIanalyse
+sur GUIanalyse, la correction du module de young se fait en cliquant sur "export"
+
+	1c) Aspect technique:
+
+langage et version = python 3.11
+librairies python = os(launch.py), tkinter(interface) et matplotlib(graphes)
+ide = vscode
+methode utilisee pour generer le code de l'interface =
+	https://github.com/ParthJadhav/Tkinter-Designer
+	suivre la doc du projet github en utilisant Figma
 	
 		2) Projection:
+	
+	2a) Calculs:
+
+corriger les calculs
+coder la partie correction du module de young
+
+	2b) Interface:
+
+ameliorer l'aspect et le placement des elements
+integrer les courbes utilisees dans les encadres gris des fenetres concernees, plutot que d'ouvrir une fenetre par dessus
+
+	2c) Globale:
+
+orientation objet
+architecture MVC
+packaging
+hash/compile du projet pour confidentialite
+creer un .exe pour lancer le logiciel
