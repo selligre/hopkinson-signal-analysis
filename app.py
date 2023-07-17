@@ -1,5 +1,5 @@
-from controllers.CalculusController import CalculusController
-from views import *
+import controllers.CalculusController as CalculusController
+import views.GUImain as GUImain
 
 
 def main():

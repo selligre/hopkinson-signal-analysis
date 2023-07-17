@@ -4,7 +4,8 @@
 
 import os
 from pathlib import Path
-from views import *
+import GUIbar
+import GUIdata
 
 # from tkinter import *
 # Explicit imports to satisfy Flake8
